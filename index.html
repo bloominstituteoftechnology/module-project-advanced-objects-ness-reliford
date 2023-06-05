@@ -26,6 +26,17 @@
     // 🧠 But there's a catch: once `age` reaches 12, the `ageGracefully` method will have no effect.
     class PeterPan {
 
+          constructor(name){
+            this.name = name
+            this.age = 0
+          }
+
+          ageGracefully() {
+            if (this.age < 12){
+              this.age++ 
+              
+            }
+          }
     }
 
     // 👉 CHALLENGE 2
@@ -39,6 +50,25 @@
     // 🧠 If calling `down` would cause the plane to go below altitude zero, `altitude` is set to 0 and the string "CRASH!" is returned.
     class AirPlane {
 
+        constructor(model, altitude){
+          this.model = model
+          this.altitude = 0
+        }
+
+        up(meters){
+          this.altitude += meters
+          return this.altitude
+        }
+
+        down(meters){
+          if((this.altitude - meters) < 0){
+            this.altitude = 0
+            return "CRASH!"
+          } else {
+            this.altitude = this.altitude - meters
+            return this.altitude
+          }
+        }
     }
 
     // 👉 CHALLENGE 3
@@ -48,6 +78,27 @@
     // 🧠 The methods work as one might expect, changing the value of `isOn` to the appropriate Boolean.
     // 🧠 The methods also return one of these two strings: "You turned the bulb ON", or "You turned the bulb OFF".
     class Bulb {
+      constructor(){
+        this.isOn = false
+      }
+      turnOn(){
+        this.isOn = true;
+        return "You turned the bulb ON"
+
+      }
+      turnOff(){
+        this.isOn = false
+        return "You turned the bulb OFF"
+      }
+      toggle(){
+        if (this.isOn === false){
+          this.isOn = true
+          return "You turned the bulb ON"
+        } else {
+          this.isOn = false
+          return "You turned the bulb OFF"
+        }
+      }
 
     }
 
@@ -66,7 +117,21 @@
     //   minusThree.count() // returns null
     //   minusThree.count() // returns null
     class CountDown {
-
+       constructor(num){
+        this.currentNum = num
+        
+       }
+       count(){
+        if(this.currentNum >= 1){
+        return `${this.currentNum--}!`
+        } else if (this.currentNum === 0){
+          this.currentNum--
+          return "Liftoff!"
+        } else {
+          return null
+        }
+       }
+      
     }
 
     // 🧪 TESTS, do not work below this line
